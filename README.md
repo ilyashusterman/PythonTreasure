@@ -42,6 +42,9 @@ Django commands
 
 django-admin startproject MyProjectName
 
+heroku login
+
+git push heroku master
 
 
 Author :
