@@ -18,5 +18,7 @@ from django.conf.urls import url
 from main_app import views
 
 urlpatterns = [
-    url(r'^$', views.index)
+    url(r'^$', views.index, name='index'),
+    url(r'^treasures/([a-zA-Z0-9-]+)/', views.detail, name='detail')
+
 ]

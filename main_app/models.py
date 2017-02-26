@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from django.utils.text import slugify
 from django.db import models
 
 # Create your models here.
@@ -11,6 +11,14 @@ class Treasure(models.Model):
                                     decimal_places=2)
         material = models.CharField(max_length=100)
         location = models.CharField(max_length=100)
+        slug = models.SlugField(max_length=100, blank=True)
+
+        # *args takes the ordered list and  **kwargs takes the dictionary
+        # self is the checked state
+        def save(self, *args, **kwargs):
+            if not self.pk:
+                self.slug = slugify(self.name)
+            super(Treasure, self).save(*args, **kwargs)
 
         def __str__(self):
             return self.name

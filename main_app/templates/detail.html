@@ -7,17 +7,13 @@
         href="{% static 'style.css' %}">
      <link rel="stylesheet" type="text/css"
         href="{% static 'bootstrap.css' %}">
-        <image rel="icon" type="image/x-icon" src="{% static 'images/logo.PNG' %}" />
-    <title>TreasureHunt</title>
+    <title>{{ treasure.name }}</title>
 </head>
 <body>
     <h1>Treasure Hunt List</h1>
-    {% for treasure in treasures %}
-        <section>
-        <a href="{% url 'detail' treasure.slug %}">More Detail</a>
         <div class="fh5co-blog animate-box fadeInUp animated-fast" >
     <h1>Treasure Item</h1>
-    <p>{{ treasure.name }}</p>
+    <p>{{ treasure.name }} </p>
         {% if treasure.value > 0 %}
     <p>{{ treasure.value }}</p>
         {% else %}
@@ -25,7 +21,5 @@
         {% endif %}
      <p>{{ treasure.location }}</p>
         </div>
-        </section>
-    {% endfor %}
 </body>
 </html>
