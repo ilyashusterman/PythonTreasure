@@ -1,15 +1,6 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css"
-        href="{% static 'style.css' %}">
-     <link rel="stylesheet" type="text/css"
-        href="{% static 'bootstrap.css' %}">
-    <title>{{ treasure.name }}</title>
-</head>
-<body>
+{%  extends 'base.html' %}
+
+{% block content %}
     <h1>Treasure Hunt List</h1>
         <div class="fh5co-blog animate-box fadeInUp animated-fast" >
     <h1>Treasure Item</h1>
@@ -20,6 +11,7 @@
             <p>Unknown</p>
         {% endif %}
      <p>{{ treasure.location }}</p>
+        <p>{{ treasure.description }}</p>
+        <p>Date : {{ treasure.date }}</p>
         </div>
-</body>
-</html>
+{% endblock %}

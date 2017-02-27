@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +66,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect'
+
             ],
         },
     },
@@ -114,6 +121,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Social authentication
+AUTHENTICATION_BACKENDS = (
+    'social.backends.google.Google0Auth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
 
 # DISABLE_COLLECTSTATIC=1
 
